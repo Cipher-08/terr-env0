@@ -1,9 +1,18 @@
 provider "aws" {
-  region = "us-west-1"
-  version = ">= 3.0, < 4.0" 
+  region = "us-east-1"
+
+  access_key = "AKIAZQ3DQ4GWR6UV76WT"
+  secret_key = "z9CvRaZhTtx3NL9lbE5mU4igrbt0X//JANyz/EJy"
 }
 
-resource "aws_instance" "env0-instance-az1" {
-  ami           = "ami-0ce2cb35386fc22e9"
+resource "aws_instance" "example" {
+  ami           = "ami-12345678"  
   instance_type = "t2.micro"
+  tags = {
+    Name = "my-env"
+  }
+}
+
+output "instance_public_ip" {
+  value = aws_instance.example.public_ip
 }
