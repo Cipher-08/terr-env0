@@ -5,14 +5,11 @@ provider "aws" {
   secret_key = "z9CvRaZhTtx3NL9lbE5mU4igrbt0X//JANyz/EJy"
 }
 
-resource "aws_instance" "example" {
-  ami           = "ami-12345678"  
+resource "aws_instance" "ec1" {
+  ami           = "ami-0ce2cb35386fc22e9"  
   instance_type = "t2.micro"
   tags = {
     Name = "my-env"
   }
 }
 
-output "instance_public_ip" {
-  value = aws_instance.example.public_ip
-}
